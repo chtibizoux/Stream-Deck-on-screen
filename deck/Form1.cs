@@ -129,7 +129,6 @@ namespace deck
                 iconPaths[i] = btn.Value.IconPath;
                 paths[i] = btn.Value.Path;
                 types[i] = btn.Value.Type;
-
                 button[i] = new System.Windows.Forms.Button();
                 SuspendLayout();
                 if (iconPaths[i] != "")
@@ -143,7 +142,9 @@ namespace deck
                 }
                 button[i].Height = iconSize;
                 button[i].Width = iconSize;
-                button[i].Location = new Point(0,0);
+                double y = Math.IEEERemainder(i - 1, buttonByColumn - 1);
+                double z = Math.Truncate((double)(i - 1) / (buttonByColumn - 1));
+                button[i].Location = new Point((int)y * iconSize, (int)z * iconSize);
                 button[i].Name = names[i];
                 button[i].Click += new System.EventHandler(click);
                 Controls.Add(button[i]);

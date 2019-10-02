@@ -141,9 +141,24 @@ namespace deck
             }
             for (int i = ID.Length - 1; i > buttonByLine * buttonByColumn; i--)
             {
-                //fileText = fileText.Remove(fileText.IndexOf(@"""button"+ i + @""": {"),);
+                int index1 = fileText.IndexOf(@"""button" + i + @""": {");
+                int index2 = fileText.IndexOf(@"""button" + (i - 1) + @""": {");
+                int length = index2 - index1;
+                fileText = fileText.Remove(index1, length);
             }
             File.WriteAllText(@"./settings.json", fileText);
+            for (int i = 1; i < ID.Length; i++)
+            {
+                kc[i].Dispose();
+                names[i].Dispose();
+                iconPaths[i].Dispose();
+                paths[i].Dispose();
+                types[i].Dispose();
+                fileDialog[i].Dispose();
+                ID[i].Dispose();
+                buttonsPath[i].Dispose();
+                buttonsIconPath[i].Dispose();
+            }
             setList();
         }
 
@@ -169,6 +184,18 @@ namespace deck
                 fileText = fileText.Remove(index1, length);
             }
             File.WriteAllText(@"./settings.json", fileText);
+            for (int i = 1; i < ID.Length; i++)
+            {
+                kc[i].Dispose();
+                names[i].Dispose();
+                iconPaths[i].Dispose();
+                paths[i].Dispose();
+                types[i].Dispose();
+                fileDialog[i].Dispose();
+                ID[i].Dispose();
+                buttonsPath[i].Dispose();
+                buttonsIconPath[i].Dispose();
+            }
             setList();
         }
 
