@@ -74,6 +74,7 @@ namespace deck
                 checkBox1.Checked = false;
             }
         }
+
         private void kc_TextChanged(object sender, EventArgs e)
         {
             for (int i = 1; i < kc.Length; i++)
