@@ -12,17 +12,35 @@ namespace deck
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        public Form2 form2;
+        int i;
+        bool icon, url;
+        public Form3(int i, bool icon)
         {
             InitializeComponent();
+            this.i = i;
+            this.icon = icon;
+            form2 = (Form2)ParentForm;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (url == true)
+            {
+                form2.form3_OnClosed(i, icon);
+                Close();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
             if (textBox1.Text != "")
             {
-
-                Close();
+                url = true;
+            }
+            else
+            {
+                url = false;
             }
         }
     }

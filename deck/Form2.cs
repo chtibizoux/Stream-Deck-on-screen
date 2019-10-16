@@ -17,14 +17,15 @@ namespace deck
     {
         public int buttonByColumn, buttonByLine, iconSize, closeTheWindow, settingsButton;
         public string fileText, settingsShortcut;
-        public bool settingsClose;
+        public bool settingsClose, icon;
         public ComboBox[] kc;
-        public Label[] iconPaths, paths,ID;
+        public Label[] iconPaths, paths, ID;
         public OpenFileDialog[] fileDialog;
         public ComboBox[] types;
         public TextBox[] names;
         public System.Windows.Forms.Button[] buttonsPath, buttonsIconPath;
         public Form3 form3;
+        public string[] iconPaths1, paths1, types1, names1, kc1;
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -81,7 +82,24 @@ namespace deck
             {
                 if (sender == kc[i])
                 {
-
+                    fileText = fileText.Replace(@"""button" + (i + 1) + @""": {
+                        ""name"": """ + names1[i] + @""",
+                        ""type"": """ + types1[i] + @""",
+                        ""path"": """ + paths1[i] + @""",
+                        ""shortcut"": """ + kc1[i] + @""",
+                        ""iconPath"": """ + iconPaths1[i] + @"""
+                    }", @"""button" + (i + 1) + @""": {
+                        ""name"": """ + names[i].Text + @""",
+                        ""type"": """ + types[i].Text + @""",
+                        ""path"": """ + paths[i].Text + @""",
+                        ""shortcut"": """ + kc[i].Text + @""",
+                        ""iconPath"": """ + iconPaths[i].Text + @"""
+                    }");
+                    names1[i] = names[i].Text;
+                    types1[i] = types[i].Text;
+                    paths1[i] = paths[i].Text;
+                    kc1[i] = kc[i].Text;
+                    iconPaths1[i] = iconPaths[i].Text;
                 }
             }
         }
@@ -92,7 +110,24 @@ namespace deck
             {
                 if (sender == names[i])
                 {
-
+                    fileText = fileText.Replace(@"""button" + (i + 1) + @""": {
+                        ""name"": """ + names1[i] + @""",
+                        ""type"": """ + types1[i] + @""",
+                        ""path"": """ + paths1[i] + @""",
+                        ""shortcut"": """ + kc1[i] + @""",
+                        ""iconPath"": """ + iconPaths1[i] + @"""
+                    }", @"""button" + (i + 1) + @""": {
+                        ""name"": """ + names[i].Text + @""",
+                        ""type"": """ + types[i].Text + @""",
+                        ""path"": """ + paths[i].Text + @""",
+                        ""shortcut"": """ + kc[i].Text + @""",
+                        ""iconPath"": """ + iconPaths[i].Text + @"""
+                    }");
+                    names1[i] = names[i].Text;
+                    types1[i] = types[i].Text;
+                    paths1[i] = paths[i].Text;
+                    kc1[i] = kc[i].Text;
+                    iconPaths1[i] = iconPaths[i].Text;
                 }
             }
         }
@@ -103,9 +138,56 @@ namespace deck
             {
                 if (sender == types[i])
                 {
-
+                    fileText = fileText.Replace(@"""button" + (i + 1) + @""": {
+                        ""name"": """ + names1[i] + @""",
+                        ""type"": """ + types1[i] + @""",
+                        ""path"": """ + paths1[i] + @""",
+                        ""shortcut"": """ + kc1[i] + @""",
+                        ""iconPath"": """ + iconPaths1[i] + @"""
+                    }", @"""button" + (i + 1) + @""": {
+                        ""name"": """ + names[i].Text + @""",
+                        ""type"": """ + types[i].Text + @""",
+                        ""path"": """ + paths[i].Text + @""",
+                        ""shortcut"": """ + kc[i].Text + @""",
+                        ""iconPath"": """ + iconPaths[i].Text + @"""
+                    }");
+                    names1[i] = names[i].Text;
+                    types1[i] = types[i].Text;
+                    paths1[i] = paths[i].Text;
+                    kc1[i] = kc[i].Text;
+                    iconPaths1[i] = iconPaths[i].Text;
                 }
             }
+        }
+
+        public void form3_OnClosed(int i, bool icon)
+        {
+            if (icon==false)
+            {
+                paths[i].Text = fileDialog[i].FileName;
+            }
+            else
+            {
+                iconPaths[i].Text = fileDialog[i].FileName;
+            }
+            fileText = fileText.Replace(@"""button" + (i + 1) + @""": {
+                ""name"": """ + names1[i] + @""",
+                ""type"": """ + types1[i] + @""",
+                ""path"": """ + paths1[i] + @""",
+                ""shortcut"": """ + kc1[i] + @""",
+                ""iconPath"": """ + iconPaths1[i] + @"""
+            }", @"""button" + (i + 1) + @""": {
+                ""name"": """ + names[i].Text + @""",
+                ""type"": """ + types[i].Text + @""",
+                ""path"": """ + paths[i].Text + @""",
+                ""shortcut"": """ + kc[i].Text + @""",
+                ""iconPath"": """ + iconPaths[i].Text + @"""
+            }");
+            names1[i] = names[i].Text;
+            types1[i] = types[i].Text;
+            paths1[i] = paths[i].Text;
+            kc1[i] = kc[i].Text;
+            iconPaths1[i] = iconPaths[i].Text;
         }
 
         private void fileDialog_FileOk(object sender, EventArgs e)
@@ -114,7 +196,32 @@ namespace deck
             {
                 if (sender == fileDialog[i])
                 {
-
+                    if (icon == false)
+                    {
+                        paths[i].Text = fileDialog[i].FileName;
+                    }
+                    else
+                    {
+                        iconPaths[i].Text = fileDialog[i].FileName;
+                    }
+                    fileText = fileText.Replace(@"""button"+ (i + 1) + @""": {
+                        ""name"": """ + names1[i] + @""",
+                        ""type"": """ + types1[i] + @""",
+                        ""path"": """ + paths1[i] + @""",
+                        ""shortcut"": """ + kc1[i] + @""",
+                        ""iconPath"": """ + iconPaths1[i] + @"""
+                    }", @"""button" + (i + 1) + @""": {
+                        ""name"": """ + names[i].Text + @""",
+                        ""type"": """ + types[i].Text + @""",
+                        ""path"": """ + paths[i].Text + @""",
+                        ""shortcut"": """ + kc[i].Text + @""",
+                        ""iconPath"": """ + iconPaths[i].Text + @"""
+                    }");
+                    names1[i] = names[i].Text;
+                    types1[i] = types[i].Text;
+                    paths1[i] = paths[i].Text;
+                    kc1[i] = kc[i].Text;
+                    iconPaths1[i] = iconPaths[i].Text;
                 }
             }
         }
@@ -261,6 +368,12 @@ namespace deck
             ID = new Label[buttonByColumn * buttonByLine + 1];
             buttonsPath = new System.Windows.Forms.Button[buttonByColumn * buttonByLine + 1];
             buttonsIconPath = new System.Windows.Forms.Button[buttonByColumn * buttonByLine + 1];
+
+            kc1 = new string[buttonByColumn * buttonByLine + 1];
+            names1 = new string[buttonByColumn * buttonByLine + 1];
+            iconPaths1 = new string[buttonByColumn * buttonByLine + 1];
+            paths1 = new string[buttonByColumn * buttonByLine + 1];
+            types1 = new string[buttonByColumn * buttonByLine + 1];
             int i = 1;
             foreach (var btn in result.Buttons)
             {
@@ -302,6 +415,13 @@ namespace deck
                 buttonsPath[i].Size = new Size(28, 23);
                 iconPaths[i].Size = new Size(59, 23);
                 buttonsIconPath[i].Size = new Size(28, 23);
+
+
+                kc1[i] = btn.Value.Shortcut;
+                names1[i] = btn.Value.Name;
+                iconPaths1[i] = btn.Value.IconPath;
+                paths1[i] = btn.Value.Path;
+                types1[i] = btn.Value.Type;
 
                 ID[i].Text = i.ToString();
                 names[i].Text = btn.Value.Name;
@@ -381,11 +501,12 @@ namespace deck
                 {
                     if (types[i].Text == "URL")
                     {
-                        form3 = new Form3();
+                        form3 = new Form3(i,true);
                         form3.ShowDialog();
                     }
                     else
                     {
+                        icon = false;
                         fileDialog[i].FileName = paths[i].Text;
                         fileDialog[i].ShowDialog();
                     }
@@ -395,6 +516,7 @@ namespace deck
             {
                 if (sender == buttonsIconPath[i])
                 {
+                    icon = true;
                     fileDialog[i].FileName = iconPaths[i].Text;
                     fileDialog[i].ShowDialog();
                 }
