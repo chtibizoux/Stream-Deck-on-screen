@@ -15,11 +15,12 @@ namespace deck
         public Form2 form2;
         int i;
         bool icon, url;
-        public Form3(int i, bool icon)
+        public Form3(string path,int i, bool icon)
         {
             InitializeComponent();
             this.i = i;
             this.icon = icon;
+            textBox1.Text = path;
             form2 = (Form2)ParentForm;
         }
 

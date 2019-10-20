@@ -92,7 +92,7 @@ string defaultFileText = @"{
                 {
                     if (paths[i] != "")
                     {
-                        System.Diagnostics.Process.Start(paths[i]);
+                        System.Diagnostics.Process.Start(paths[i].Replace(@"\", "/"));
                     }
                     if (closeTheWindow == 1)
                     {
@@ -121,7 +121,7 @@ string defaultFileText = @"{
             int i = 1;
             foreach (var btn in result.Buttons)
             {
-                if (btn.Value.Shortcut != null)
+                if (btn.Value.Shortcut != "")
                 {
                     kc[i] = btn.Value.Shortcut;
                 }
@@ -133,7 +133,7 @@ string defaultFileText = @"{
                 SuspendLayout();
                 if (iconPaths[i] != "")
                 {
-                    button[i].BackgroundImage = Image.FromFile(iconPaths[i]);
+                    button[i].BackgroundImage = Image.FromFile(iconPaths[i].Replace(@"\", "/"));
                     button[i].Text = "";
                 }
                 else
@@ -162,7 +162,7 @@ string defaultFileText = @"{
                 {
                     if (paths[i] != "")
                     {
-                        System.Diagnostics.Process.Start(paths[i]);
+                        System.Diagnostics.Process.Start(paths[i].Replace(@"\", "/"));
                     }
                     if (closeTheWindow == 1)
                     {

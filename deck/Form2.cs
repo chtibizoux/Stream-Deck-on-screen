@@ -206,7 +206,7 @@ namespace deck
                     }
                     else
                     {
-                        iconPaths[i].Text = fileDialog[i].FileName;
+                        iconPaths[i].Text = fileDialog[i].FileName.Replace(@"\","/");
                     }
         fileText = fileText.Replace(@"""button"+ i + @""": {
             ""name"": """ + names1[i] + @""",
@@ -508,13 +508,13 @@ namespace deck
                 {
                     if (types[i].Text == "URL")
                     {
-                        form3 = new Form3(i,true);
+                        form3 = new Form3(paths[i].Text,i, true);
                         form3.ShowDialog();
                     }
                     else
                     {
                         icon = false;
-                        fileDialog[i].FileName = paths[i].Text;
+                        fileDialog[i].FileName = paths[i].Text.Replace(@"\", "/");
                         fileDialog[i].ShowDialog();
                     }
                 }
@@ -524,7 +524,7 @@ namespace deck
                 if (sender == buttonsIconPath[i])
                 {
                     icon = true;
-                    fileDialog[i].FileName = iconPaths[i].Text;
+                    fileDialog[i].FileName = iconPaths[i].Text.Replace(@"\", "/");
                     fileDialog[i].ShowDialog();
                 }
             }
