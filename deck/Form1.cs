@@ -15,23 +15,23 @@ namespace deck
 {
     public partial class Form1 : Form
     {
-        string defaultFileText = @"{
-            ""buttonByColumn"": 1,
-            ""buttonByLine"": 1,
-            ""iconSize"": 100,
-            ""closeTheWindow"": 1,
-            ""settingsButton"": 1,
-            ""settingsShortcut"": ""1"",
-            ""buttons"": {
-                ""button1"": {
-                    ""name"": ""test"",
-                    ""type"": ""URL"",
-                    ""path"": ""https://clementsongis.wordpress.com"",
-                    ""shortcut"": ""e"",
-                    ""iconPath"": """"
-                }
-            }
-        }";
+string defaultFileText = @"{
+    ""buttonByColumn"": 1,
+    ""buttonByLine"": 1,
+    ""iconSize"": 100,
+    ""closeTheWindow"": 1,
+    ""settingsButton"": 1,
+    ""settingsShortcut"": ""1"",
+    ""buttons"": {
+        ""button1"": {
+            ""name"": ""test"",
+            ""type"": ""URL"",
+            ""path"": ""https://clementsongis.wordpress.com"",
+            ""shortcut"": ""e"",
+            ""iconPath"": """"
+        }
+    }
+}";
         public int buttonByColumn, buttonByLine, iconSize,closeTheWindow;
         public string fileText;
         public bool settingsOpen;

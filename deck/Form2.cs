@@ -82,19 +82,20 @@ namespace deck
             {
                 if (sender == kc[i])
                 {
-                    fileText = fileText.Replace(@"""button" + (i + 1) + @""": {
-                        ""name"": """ + names1[i] + @""",
-                        ""type"": """ + types1[i] + @""",
-                        ""path"": """ + paths1[i] + @""",
-                        ""shortcut"": """ + kc1[i] + @""",
-                        ""iconPath"": """ + iconPaths1[i] + @"""
-                    }", @"""button" + (i + 1) + @""": {
-                        ""name"": """ + names[i].Text + @""",
-                        ""type"": """ + types[i].Text + @""",
-                        ""path"": """ + paths[i].Text + @""",
-                        ""shortcut"": """ + kc[i].Text + @""",
-                        ""iconPath"": """ + iconPaths[i].Text + @"""
-                    }");
+        fileText = fileText.Replace(@"""button" + i + @""": {
+            ""name"": """ + names1[i] + @""",
+            ""type"": """ + types1[i] + @""",
+            ""path"": """ + paths1[i] + @""",
+            ""shortcut"": """ + kc1[i] + @""",
+            ""iconPath"": """ + iconPaths1[i] + @"""
+        }", @"""button" + i + @""": {
+            ""name"": """ + names[i].Text + @""",
+            ""type"": """ + types[i].Text + @""",
+            ""path"": """ + paths[i].Text + @""",
+            ""shortcut"": """ + kc[i].Text + @""",
+            ""iconPath"": """ + iconPaths[i].Text + @"""
+        }");
+                    File.WriteAllText(@"./settings.json", fileText);
                     names1[i] = names[i].Text;
                     types1[i] = types[i].Text;
                     paths1[i] = paths[i].Text;
@@ -110,19 +111,20 @@ namespace deck
             {
                 if (sender == names[i])
                 {
-                    fileText = fileText.Replace(@"""button" + (i + 1) + @""": {
-                        ""name"": """ + names1[i] + @""",
-                        ""type"": """ + types1[i] + @""",
-                        ""path"": """ + paths1[i] + @""",
-                        ""shortcut"": """ + kc1[i] + @""",
-                        ""iconPath"": """ + iconPaths1[i] + @"""
-                    }", @"""button" + (i + 1) + @""": {
-                        ""name"": """ + names[i].Text + @""",
-                        ""type"": """ + types[i].Text + @""",
-                        ""path"": """ + paths[i].Text + @""",
-                        ""shortcut"": """ + kc[i].Text + @""",
-                        ""iconPath"": """ + iconPaths[i].Text + @"""
-                    }");
+        fileText = fileText.Replace(@"""button" + i + @""": {
+            ""name"": """ + names1[i] + @""",
+            ""type"": """ + types1[i] + @""",
+            ""path"": """ + paths1[i] + @""",
+            ""shortcut"": """ + kc1[i] + @""",
+            ""iconPath"": """ + iconPaths1[i] + @"""
+        }", @"""button" + i + @""": {
+            ""name"": """ + names[i].Text + @""",
+            ""type"": """ + types[i].Text + @""",
+            ""path"": """ + paths[i].Text + @""",
+            ""shortcut"": """ + kc[i].Text + @""",
+            ""iconPath"": """ + iconPaths[i].Text + @"""
+        }");
+                    File.WriteAllText(@"./settings.json", fileText);
                     names1[i] = names[i].Text;
                     types1[i] = types[i].Text;
                     paths1[i] = paths[i].Text;
@@ -138,19 +140,20 @@ namespace deck
             {
                 if (sender == types[i])
                 {
-                    fileText = fileText.Replace(@"""button" + (i + 1) + @""": {
-                        ""name"": """ + names1[i] + @""",
-                        ""type"": """ + types1[i] + @""",
-                        ""path"": """ + paths1[i] + @""",
-                        ""shortcut"": """ + kc1[i] + @""",
-                        ""iconPath"": """ + iconPaths1[i] + @"""
-                    }", @"""button" + (i + 1) + @""": {
-                        ""name"": """ + names[i].Text + @""",
-                        ""type"": """ + types[i].Text + @""",
-                        ""path"": """ + paths[i].Text + @""",
-                        ""shortcut"": """ + kc[i].Text + @""",
-                        ""iconPath"": """ + iconPaths[i].Text + @"""
-                    }");
+        fileText = fileText.Replace(@"""button" + i + @""": {
+            ""name"": """ + names1[i] + @""",
+            ""type"": """ + types1[i] + @""",
+            ""path"": """ + paths1[i] + @""",
+            ""shortcut"": """ + kc1[i] + @""",
+            ""iconPath"": """ + iconPaths1[i] + @"""
+        }", @"""button" + i + @""": {
+            ""name"": """ + names[i].Text + @""",
+            ""type"": """ + types[i].Text + @""",
+            ""path"": """ + paths[i].Text + @""",
+            ""shortcut"": """ + kc[i].Text + @""",
+            ""iconPath"": """ + iconPaths[i].Text + @"""
+        }");
+                    File.WriteAllText(@"./settings.json", fileText);
                     names1[i] = names[i].Text;
                     types1[i] = types[i].Text;
                     paths1[i] = paths[i].Text;
@@ -170,19 +173,20 @@ namespace deck
             {
                 iconPaths[i].Text = fileDialog[i].FileName;
             }
-            fileText = fileText.Replace(@"""button" + (i + 1) + @""": {
-                ""name"": """ + names1[i] + @""",
-                ""type"": """ + types1[i] + @""",
-                ""path"": """ + paths1[i] + @""",
-                ""shortcut"": """ + kc1[i] + @""",
-                ""iconPath"": """ + iconPaths1[i] + @"""
-            }", @"""button" + (i + 1) + @""": {
-                ""name"": """ + names[i].Text + @""",
-                ""type"": """ + types[i].Text + @""",
-                ""path"": """ + paths[i].Text + @""",
-                ""shortcut"": """ + kc[i].Text + @""",
-                ""iconPath"": """ + iconPaths[i].Text + @"""
-            }");
+        fileText = fileText.Replace(@"""button" + i + @""": {
+            ""name"": """ + names1[i] + @""",
+            ""type"": """ + types1[i] + @""",
+            ""path"": """ + paths1[i] + @""",
+            ""shortcut"": """ + kc1[i] + @""",
+            ""iconPath"": """ + iconPaths1[i] + @"""
+        }", @"""button" + i + @""": {
+            ""name"": """ + names[i].Text + @""",
+            ""type"": """ + types[i].Text + @""",
+            ""path"": """ + paths[i].Text + @""",
+            ""shortcut"": """ + kc[i].Text + @""",
+            ""iconPath"": """ + iconPaths[i].Text + @"""
+        }");
+            File.WriteAllText(@"./settings.json", fileText);
             names1[i] = names[i].Text;
             types1[i] = types[i].Text;
             paths1[i] = paths[i].Text;
@@ -204,19 +208,20 @@ namespace deck
                     {
                         iconPaths[i].Text = fileDialog[i].FileName;
                     }
-                    fileText = fileText.Replace(@"""button"+ (i + 1) + @""": {
-                        ""name"": """ + names1[i] + @""",
-                        ""type"": """ + types1[i] + @""",
-                        ""path"": """ + paths1[i] + @""",
-                        ""shortcut"": """ + kc1[i] + @""",
-                        ""iconPath"": """ + iconPaths1[i] + @"""
-                    }", @"""button" + (i + 1) + @""": {
-                        ""name"": """ + names[i].Text + @""",
-                        ""type"": """ + types[i].Text + @""",
-                        ""path"": """ + paths[i].Text + @""",
-                        ""shortcut"": """ + kc[i].Text + @""",
-                        ""iconPath"": """ + iconPaths[i].Text + @"""
-                    }");
+        fileText = fileText.Replace(@"""button"+ i + @""": {
+            ""name"": """ + names1[i] + @""",
+            ""type"": """ + types1[i] + @""",
+            ""path"": """ + paths1[i] + @""",
+            ""shortcut"": """ + kc1[i] + @""",
+            ""iconPath"": """ + iconPaths1[i] + @"""
+        }", @"""button" + i + @""": {
+            ""name"": """ + names[i].Text + @""",
+            ""type"": """ + types[i].Text + @""",
+            ""path"": """ + paths[i].Text + @""",
+            ""shortcut"": """ + kc[i].Text + @""",
+            ""iconPath"": """ + iconPaths[i].Text + @"""
+        }");
+                    File.WriteAllText(@"./settings.json", fileText);
                     names1[i] = names[i].Text;
                     types1[i] = types[i].Text;
                     paths1[i] = paths[i].Text;
@@ -239,13 +244,14 @@ namespace deck
             buttonByColumn = (int)numericUpDown3.Value;
             for (int i = ID.Length - 1; i < buttonByLine * buttonByColumn; i++)
             {
-                fileText = fileText.Insert(fileText.IndexOf(@"""buttons"": {") + 12, @"""button" + (i + 1) + @""": {
-                    ""name"": """",
-                    ""type"": ""URL"",
-                    ""path"": """",
-                    ""shortcut"": """",
-                    ""iconPath"": """"
-                },");
+                fileText = fileText.Insert(fileText.IndexOf(@"""buttons"": {") + 12, @"
+        ""button" + (i + 1) + @""": {
+            ""name"": """",
+            ""type"": ""URL"",
+            ""path"": """",
+            ""shortcut"": """",
+            ""iconPath"": """"
+        },");
             }
             for (int i = ID.Length - 1; i > buttonByLine * buttonByColumn; i--)
             {
@@ -276,13 +282,14 @@ namespace deck
             buttonByLine = (int)numericUpDown2.Value;
             for (int i = ID.Length - 1; i < buttonByLine * buttonByColumn; i++)
             {
-                fileText = fileText.Insert(fileText.IndexOf(@"""buttons"": {") + 12, @"""button" + (i + 1) + @""": {
-                    ""name"": """",
-                    ""type"": ""URL"",
-                    ""path"": """",
-                    ""shortcut"": """",
-                    ""iconPath"": """"
-                },");
+                fileText = fileText.Insert(fileText.IndexOf(@"""buttons"": {") + 12, @"
+        ""button" + (i + 1) + @""": {
+            ""name"": """",
+            ""type"": ""URL"",
+            ""path"": """",
+            ""shortcut"": """",
+            ""iconPath"": """"
+        },");
             }
             for (int i = ID.Length - 1; i > buttonByLine * buttonByColumn; i--)
             {
