@@ -278,7 +278,7 @@ namespace deck
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            fileText = fileText.Replace(@"""buttonByLine"": " + buttonByLine, @"""buttonByline"": " + numericUpDown2.Value);
+            fileText = fileText.Replace(@"""buttonByLine"": " + buttonByLine, @"""buttonByLine"": " + numericUpDown2.Value);
             buttonByLine = (int)numericUpDown2.Value;
             for (int i = ID.Length - 1; i < buttonByLine * buttonByColumn; i++)
             {
@@ -332,16 +332,16 @@ namespace deck
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
-            fileText = fileText.Replace(@"""settingsShortcut"": """ + settingsShortcut + @" "" ", @"""settingsShortcut"": """ + textBox1.Text + @" "" ");
+            fileText = fileText.Replace(@"""settingsShortcut"": """ + settingsShortcut + @"""", @"""settingsShortcut"": """ + textBox1.Text + @"""");
             File.WriteAllText(@"./settings.json", fileText);
             settingsShortcut = textBox1.Text;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (settings.Checked)
+            if (checkBox1.Checked)
             {
-                fileText = fileText.Replace(@"""closeTheWindow"": " + closeTheWindow, @"""closeTheWindow"": " + 1); File.WriteAllText(@"./settings.json", fileText);
+                fileText = fileText.Replace(@"""closeTheWindow"": " + closeTheWindow, @"""closeTheWindow"": " + 1);
                 closeTheWindow = 1;
             }
             else
