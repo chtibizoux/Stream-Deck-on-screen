@@ -163,16 +163,9 @@ namespace deck
             }
         }
 
-        public void form3_OnClosed(int i, bool icon)
+        public void form3_OnClosed(int i, string path)
         {
-            if (icon==false)
-            {
-                paths[i].Text = fileDialog[i].FileName;
-            }
-            else
-            {
-                iconPaths[i].Text = fileDialog[i].FileName;
-            }
+            paths[i].Text = path;
         fileText = fileText.Replace(@"""button" + i + @""": {
             ""name"": """ + names1[i] + @""",
             ""type"": """ + types1[i] + @""",
@@ -203,6 +196,7 @@ namespace deck
                     if (icon == false)
                     {
                         paths[i].Text = fileDialog[i].FileName;
+                        paths[i].Text = fileDialog[i].FileName.Replace(@"\", "/");
                     }
                     else
                     {
@@ -508,7 +502,8 @@ namespace deck
                 {
                     if (types[i].Text == "URL")
                     {
-                        form3 = new Form3(paths[i].Text,i, true);
+                        form3 = new Form3(paths[i].Text,i);
+                        form3.form2 = (Form2)ActiveForm;
                         form3.ShowDialog();
                     }
                     else

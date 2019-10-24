@@ -14,33 +14,46 @@ namespace deck
     {
         public Form2 form2;
         int i;
-        bool icon, url;
-        public Form3(string path,int i, bool icon)
+        bool url;
+        string path;
+        public Form3(string path, int i)
         {
             InitializeComponent();
             this.i = i;
-            this.icon = icon;
+            this.path = path;
             textBox1.Text = path;
-            form2 = (Form2)ParentForm;
+            if (textBox1.Text != "" && (textBox1.Text.Contains("http://") || textBox1.Text.Contains("https://")) && textBox1.Text.Contains("."))
+            {
+                label1.Text = "the url is good";
+                url = true;
+            }
+            else
+            {
+                label1.Text = "it's a bad url(the URL must contain 'https://' or 'http://' and a minimum of one point)";
+                url = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (url == true)
             {
-                form2.form3_OnClosed(i, icon);
+                form2.form3_OnClosed(i,path);
                 Close();
             }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (textBox1.Text != "" && (textBox1.Text.Contains("http://") || textBox1.Text.Contains("https://")) && textBox1.Text.Contains("."))
             {
+                path = textBox1.Text;
+                label1.Text = "the url is good";
                 url = true;
             }
             else
             {
+                label1.Text = "it's a bad url(the URL must contain \"https://\" or \"http://\" and a minimum of one point)";
                 url = false;
             }
         }
