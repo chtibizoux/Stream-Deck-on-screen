@@ -187,6 +187,11 @@ namespace deck
             iconPaths1[i] = iconPaths[i].Text;
         }
 
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void fileDialog_FileOk(object sender, EventArgs e)
         {
             for (int i = 1; i < fileDialog.Length; i++)

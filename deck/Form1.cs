@@ -35,7 +35,7 @@ string defaultFileText = @"{
         public int buttonByColumn, buttonByLine, iconSize,closeTheWindow;
         public string fileText;
         public bool settingsOpen;
-        public string[] names, kc, iconPaths, paths, types;
+        public string[] names, kc, iconPaths, paths, types, arguments;
         public System.Windows.Forms.Button[] button;
         public Form2 form2;
 
@@ -52,6 +52,7 @@ string defaultFileText = @"{
         
         void Start()
         {
+            arguments = Environment.GetCommandLineArgs();
             if (!File.Exists(@"./settings.json"))
             {
                 File.WriteAllText(@"./settings.json", defaultFileText);
@@ -63,8 +64,8 @@ string defaultFileText = @"{
             buttonByLine = result.ButtonByLine;
             iconSize = result.IconSize;
             closeTheWindow = result.CloseTheWindow;
-            Height = (buttonByColumn * (iconSize + 20)) + 20;
-            Width = buttonByLine * (iconSize + 20);
+            Height = (buttonByColumn * iconSize) + 40;
+            Width = (buttonByLine * iconSize) + 20;
 
             if (result.SettingsButton == 1)
             {
@@ -74,7 +75,20 @@ string defaultFileText = @"{
             {
                 settings.Visible = false;
             }
-            Location = new Point(Screen.PrimaryScreen.Bounds.Width - Size.Width + 10, Screen.PrimaryScreen.Bounds.Height - Size.Height - 30);
+            
+            string.Join(", ", arguments);
+            for (int i = 0; i < arguments.Length; i++)
+            {
+                if (arguments[i] == "test")
+                {
+                    Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2);
+                    FormBorderStyle = FormBorderStyle.None;
+                }
+                else
+                {
+                    Location = new Point(Screen.PrimaryScreen.Bounds.Width - Size.Width + 10, Screen.PrimaryScreen.Bounds.Height - Size.Height - 30);
+                }
+            }
 
             setList();
         }
@@ -142,9 +156,21 @@ string defaultFileText = @"{
                 }
                 button[i].Height = iconSize;
                 button[i].Width = iconSize;
-                double y = Math.IEEERemainder(i - 1, buttonByColumn - 1);
-                double z = Math.Truncate((double)(i - 1) / (buttonByColumn - 1));
-                button[i].Location = new Point((int)y * iconSize, (int)z * iconSize);
+                //location
+                int y = 0;
+                int z = 0;
+                bool fin = false;
+                for (int e = 0; e < buttonByLine; e++)
+                {
+                    if (i < buttonByColumn * (e + 1) && fin == false)
+                    {
+                        y = e;
+                        z = i - buttonByColumn * e;
+                        fin = true; 
+                    }
+                }
+                button[i].Location = new Point(y * iconSize, z * iconSize);
+
                 button[i].Name = names[i];
                 button[i].Click += new System.EventHandler(click);
                 Controls.Add(button[i]);
