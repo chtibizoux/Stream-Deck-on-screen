@@ -75,13 +75,11 @@ string defaultFileText = @"{
             {
                 settings.Visible = false;
             }
-            
-            string.Join(", ", arguments);
             for (int i = 0; i < arguments.Length; i++)
             {
                 if (arguments[i] == "test")
                 {
-                    Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2);
+                    Location = new Point((Screen.PrimaryScreen.Bounds.Width / 2) - (Size.Width / 2), (Screen.PrimaryScreen.Bounds.Height / 2) - (Size.Height / 2));
                     FormBorderStyle = FormBorderStyle.None;
                 }
                 else
