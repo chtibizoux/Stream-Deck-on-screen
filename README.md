@@ -5,4 +5,6 @@ read wiki for use:
 
 https://github.com/oniudrafr/Stream-Deck-on-screen/wiki
 
-I am doing the settings, I have finish the first page.
+download aplication:
+
+https://github.com/oniudrafr/stream-deck-on-screen-application
