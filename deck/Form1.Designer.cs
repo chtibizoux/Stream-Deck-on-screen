@@ -34,13 +34,16 @@
             // 
             // settings
             // 
+            this.settings.BackColor = System.Drawing.Color.Transparent;
             this.settings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("settings.BackgroundImage")));
             this.settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.settings.Location = new System.Drawing.Point(12, 12);
+            this.settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settings.ForeColor = System.Drawing.Color.Transparent;
+            this.settings.Location = new System.Drawing.Point(0, 0);
             this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(32, 33);
+            this.settings.Size = new System.Drawing.Size(35, 35);
             this.settings.TabIndex = 9;
-            this.settings.UseVisualStyleBackColor = true;
+            this.settings.UseVisualStyleBackColor = false;
             this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // Form1
