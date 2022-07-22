@@ -1,10 +1,7 @@
-# Stream-Deck-on-screen
-It is a small project in c # to create with visual studio 2017, which is not finished.
+# Stream deck on screen
+This is one of my first C# projects.
 
-read wiki for use:
+[Download App](https://github.com/chtibizoux/Stream-Deck-on-screen/releases/download/v1.0/deck.zip)
 
-https://github.com/oniudrafr/Stream-Deck-on-screen/wiki
-
-download aplication:
-
-https://github.com/oniudrafr/stream-deck-on-screen-application
+wiki:
+https://github.com/chtibizoux/Stream-Deck-on-screen/wiki
